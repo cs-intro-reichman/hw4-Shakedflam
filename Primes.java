@@ -1,28 +1,25 @@
 public class Primes {
     public static void main(String[] args) {
         int untilWhatNumber= Integer.parseInt(args[0]);
-        int breakingPoint= (int)Math.sqrt(untilWhatNumber);
-        boolean[] isPrimre= new boolean[untilWhatNumber+1];
-        for (int i=2; i<isPrimre.length; i++){
-            isPrimre[i]=true;
+        boolean[] isPrime= new boolean[untilWhatNumber+1];
+        for (int i=2; i<isPrime.length; i++){
+            isPrime[i]=true;
         }
         int prime=2;
-        while (prime<=breakingPoint+1){
-            for (int j=prime+1; j<isPrimre.length; j++){
-                if (j%prime==0 ){
-                    isPrimre[j]=false;
+        while (prime*prime<=untilWhatNumber){
+            if (isPrime[prime]) {
+                int multiple = prime * prime;
+                while (multiple <= untilWhatNumber) {
+                    isPrime[multiple] = false;
+                    multiple += prime;
                 }
             }
-            for (int k=prime+1; k<untilWhatNumber; k++){
-                if (isPrimre[k]==true){
-                    prime=k;
-                    break;
-                }
-            }
+            prime++;
         }
+        System.out.println("Prime numbers up to " + untilWhatNumber + ":");
         int howManyPrimes=0;
-        for (int j=2; j<isPrimre.length; j++){
-            if (isPrimre[j]==true){
+        for (int j=2; j<isPrime.length; j++){
+            if (isPrime[j]==true){
                 howManyPrimes++;
             }
         }
