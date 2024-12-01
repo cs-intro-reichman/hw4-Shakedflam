@@ -26,6 +26,7 @@ public class Primes {
                 howManyPrimes++;
             }
         }
-        System.out.println("There are "+howManyPrimes+" primes between 2 and "+untilWhatNumber);
+        System.out.println("Prime numbers up to "+untilWhatNumber+":");
+        System.out.println("There are "+howManyPrimes+" primes between 2 and "+untilWhatNumber+" ");
     }
 }
