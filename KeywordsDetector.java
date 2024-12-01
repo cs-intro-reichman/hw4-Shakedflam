@@ -40,10 +40,11 @@ public class KeywordsDetector {
         for (int j=0; j<sentences.length;j++){
             newSentences[j]=lowerCase(sentences[j]);
         }
-        for (int m=0; m<newKeyword.length; m++){
-            for (int k=0; k<newSentences.length;k++){
+        for (int k=0; k<newSentences.length;k++){
+            for (int m=0; m<newKeyword.length; m++){
                 if (contains(newSentences[k], newKeyword[m])==true){
-                    System.out.println(sentences[k]);
+                    String printSentence= sentences[k];
+                    System.out.println(printSentence);
                 }
             }
         }
