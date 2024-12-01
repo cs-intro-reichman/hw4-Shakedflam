@@ -31,7 +31,29 @@ public class MyString {
 
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
-        // Replace the following statement with your code
+        int sameLatters=0;
+        if (str2.length()>str1.length()){
+            return false;
+        }
+        for (int i=0; i<str1.length();i++){
+            char char1=str1.charAt(i);
+            char char2=str2.charAt(0);
+            if (char1==char2){
+                String contain= str1.substring(i, str2.length()+i);
+                for (int j=0; j<str2.length();j++){
+                    char2=str2.charAt(j);
+                    char containChar=contain.charAt(j);
+                    if (char2==containChar){
+                        sameLatters++;
+                    }else{
+                        break;
+                    }
+                }
+            }
+            if (sameLatters==str2.length()){
+                return true;
+            }
+        }
         return false;
     }
 }
