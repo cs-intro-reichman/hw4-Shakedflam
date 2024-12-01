@@ -17,10 +17,50 @@ public class KeywordsDetector {
         String[] keywords = {"synergy", "disrupt", "leverage", "Paradigm", "transform"};
         detectAndPrint(sentences, keywords);
     }
+    public static String lowerCase(String str) {
+        String str1="";
+        for (int i=0; i<str.length();i++){
+            char c =str.charAt(i);
+            if (c>=65 && c<=90){
+                c+=32;
+            }
+            str1+=""+c;
+        }
+        return str1;
+    }
 
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
+        String[] newKeyword=keywords;
+        String[] newSentences= sentences;
+        for (int i=0; i<keywords.length;i++){
+            newKeyword[i]=lowerCase(keywords[i]);
+        }
+        for (int j=0; j<sentences.length;j++){
+            newSentences[j]=lowerCase(sentences[j]);
+        }
+        for (int m=0; m<newKeyword.length; m++){
+            for (int k=0; k<newSentences.length;k++){
+                if (contains(newSentences[k], newKeyword[m])==true){
+                    System.out.println(sentences[k]);
+                }
+            }
+        }
+    }
+  
+
+    public static boolean contains(String str1, String str2) {
+        for (int i = 0; i <= str1.length() - str2.length(); i++) {
+            boolean contain = true;
+            for (int j = 0; j < str2.length(); j++) {
+                if (str1.charAt(i + j) != str2.charAt(j)) {
+                    contain = false;
+                    break;
+                }
+            }
+            if (contain) return true;
+        }
+        return false;
     }
 }
