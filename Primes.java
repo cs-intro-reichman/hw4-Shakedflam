@@ -27,6 +27,6 @@ public class Primes {
             }
         }
         System.out.println("Prime numbers up to "+untilWhatNumber+":");
-        System.out.println("There are "+howManyPrimes+" primes between 2 and "+untilWhatNumber+" ("+((howManyPrimes*100)/untilWhatNumber)+"% are primes)");
+        System.out.println("There are "+howManyPrimes+" primes between 2 and "+untilWhatNumber+" (" +((howManyPrimes*100)/untilWhatNumber)+"% are primes)");
     }
 }
